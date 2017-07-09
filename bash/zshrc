@@ -115,7 +115,7 @@ export PATH=/home/aeid/anaconda3/bin:$PATH
 
 [[ -s "/home/aeid/.gvm/scripts/gvm" ]] && source "/home/aeid/.gvm/scripts/gvm"
 
-source nogithub 
+source ~/bin/dotfiles/bash/nogithub 
 
 # gvm 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
