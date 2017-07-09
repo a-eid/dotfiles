@@ -94,8 +94,6 @@ source ~/bin/dotfiles/bash/env
 
 
 
-
-
 function to-pdf(){
   markdown-pdf -s "~/custom/md.css" $1.md -o $1.pdf 
 }

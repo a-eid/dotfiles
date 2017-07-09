@@ -1,6 +1,5 @@
-alias lll='ls -la'
-
 source ~/.alias
+# to disable duplicate history 
 export HISTCONTROL="eraseDups:ignoreSpace"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -21,8 +20,8 @@ function bp(){
 }
 
 
-
-if [[ ! $TERM =~ screen ]]; then
-  exec tmux
-fi
+# this runs tmux automatically ( I thought its a good idea but I was wrong ) 
+#if [[ ! $TERM =~ screen ]]; then
+#  exec tmux
+#fi
 
