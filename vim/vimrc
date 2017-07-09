@@ -1,0 +1,183 @@
+"Plugin managment " 
+so ~/.vim/plugins.vim
+
+syntax on
+set number 
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set backspace=2
+set showtabline=2
+let mapleader=','
+let colorcolumn=join(range(81,999),",")
+let colorcolumn="80,".join(range(400,999),",")
+set numberwidth=1
+set wrap 
+set linebreak 
+set wildmenu                                          "show menu on cmd complete"
+set cursorline                                        "highlight current light"
+" set undofile 
+set gdefault                                          "make the g flag in
+
+"highlight Visual guibg=#FFFFFF guifg='NONE'
+
+set autoindent 
+set smartindent
+
+"Auto indent on new line 
+filetype indent on
+inoremap {<cr> {<cr>}<c-o>O<tab>
+inoremap [<cr> [<cr>]<c-o>O<tab>
+inoremap (<cr> (<cr>)<c-o>O<tab>
+
+"==================== Auto Commands ======================="
+"Auto source .vimrc file on save " 
+augroup sourcing
+autocmd! 
+autocmd BufWritePost .vimrc source %
+augroup END 
+
+
+" Mappings "
+"Movment
+" move to end or beginning of lines while in insertmode helpers 
+inoremap <C-a> <Esc>I
+map <C-a> <Esc>I
+map <leader>bp :bp<cr>
+map <leader>bn :bn<cr>
+map <leader>bd :bd<cr>
+
+" make ctrl-c and escaple synon 
+imap <C-C> <esc>
+imap <leader><leader> <esc>
+
+map <leader>. :SyntasticToggleMode<cr>
+
+
+
+"GUI options 
+hi LineNr guibg=bg
+hi vertsplit guifg=bg guibg=bg
+
+"==================== Visuals  ======================="
+colorscheme lucario 
+"colorscheme evening
+set t_CO=256
+"color dracula
+hi Visual term=reverse cterm=reverse guibg=Grey
+
+
+"====================  Splits  ======================="
+set splitbelow
+set splitright
+nmap <C-J> <C-W><C-J>
+nmap <C-H> <C-W><C-H>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+
+"====================  Tabs  ======================="
+nmap <C-F><C-F> :tabn<cr>
+nmap <C-D><C-D> :tabN<cr>
+
+
+
+"==================== NERDTree ======================="
+nmap <C-K><C-B> :NERDTreeToggle<cr>
+map <C-K><C-B> :NERDTreeToggle<cr>
+imap <C-K><C-B> <esc>:NERDTreeToggle<cr>
+
+let NERDTreeHijackNetrw=0
+
+
+"==================== CtrlP  ======================="
+nmap <C-R> :CtrlPBufTag<cr>
+nmap <C-T> :CtrlPMRUFiles<cr>
+"Ignore files"
+let g:ctrlp_custom_ignore='node_modules\git'
+let g:ctrlp_match_window= 'top,order:ttb,min:1,max:30,results:30'
+
+
+"==================== Searching  ======================="
+set hlsearch
+set incsearch
+"==================== Tagbar ======================="
+
+nmap <leader>tb :TagbarToggle<cr>
+
+"==================== Airline =======================" 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline_detect_spell=1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+:set laststatus=2
+
+
+""=========== emmet vim
+let g:user_emmet_leader_key='<leader>.'
+let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+"
+"============================================================================"
+"Faster Edit files "
+nmap <leader>ev :tabedit $MYVIMRC<cr> 
+nmap <leader>ep :tabedit /home/aeid/.vim/plugins.vim<cr>
+nmap <leader>eb :tabedit /home/aeid/.bashrc<cr>
+nmap <leader>ez :tabedit /home/aeid/.zshrc<cr>
+nmap <leader>en :tabedit /home/aeid/vimnotes.md<cr>
+nmap <leader>et :tabedit ~/Code/bash/et.md<cr>
+"quit tab"
+map <leader>ww :q<cr>
+"quit tab without saving"
+map <leader>wi :q!<cr> 
+"clear search highlight"
+map <leader><leader> :nohlsearch<cr> 
+
+"auto cmd to format gtml 
+autocmd BufRead,BufWritePre *.html normal gg=G
+
+"Disaple arrow keys 
+noremap <left> <nop>
+noremap <right> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
+
+"try
+:filetype on
+:filetype plugin indent on 
+
+"hide gvim toolbar
+:set guioptions -=T
+:set guioptions -=Ace 
+:set guioptions -=m
+:set guioptions -=T
+:set guioptions -=r
+:set guioptions -=L
+
+
+
+" buffer quick move 
+
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>  
+
+" nerdtree ignores accepts a comma sep list of regexp 
+let NERDTreeIgnore=['\.vim$', '\~$' , '^node_modules$']
+
+
+
+
+function! s:NavigateTermSplits(direction)
+  let windowNumber = winnr()
+  execute 'wincmd ' . a:direction
+  if windowNumber == winnr()
+    " We didn't move to a new vim split. Now try to move tmux splits
+    silent call system('tmux select-pane -' . tr(a:direction, 'hjkl', 'LDUR'))
+  endif
+endfunction
+
+nnoremap <silent> <C-h> :call <SID>NavigateTermSplits('h')<CR>
+nnoremap <silent> <C-j> :call <SID>NavigateTermSplits('j')<CR>
+nnoremap <silent> <C-k> :call <SID>NavigateTermSplits('k')<CR>
+nnoremap <silent> <C-l> :call <SID>NavigateTermSplits('l')<CR>
