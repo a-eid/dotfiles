@@ -115,6 +115,7 @@ export PATH=/home/aeid/anaconda3/bin:$PATH
 
 [[ -s "/home/aeid/.gvm/scripts/gvm" ]] && source "/home/aeid/.gvm/scripts/gvm"
 
+source nogithub 
 
 # gvm 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
@@ -129,32 +130,6 @@ export SDKMAN_DIR="/home/aeid/.sdkman"
 export PHANTOM_JS="phantomjs-2.1.1"
 
 
-# pluralsight downloader 
-function pl(){
-youtube-dl -i --username mark-yyj --password  0102409624057 $1 -o "/media/aeid/secondary/pl/%(playlist)s/%(chapter_number)s. %(chapter)s/%(playlist_index)s. %(title)s.%(ext)s" 
-}
-# lynda  downloader 
-#  --no-post-overwrites 
-#  "/home/aeid/data/lynda//%(id)s. %(title)s.%(ext)s"
-function lynda(){
-  youtube-dl  --cookies ~/Desktop/lynda --no-post-overwrites -i  $1 -o  "/media/aeid/secondary/lynda/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"
-}
-
-function yd(){
-  youtube-dl -i $1 -o "/media/aeid/secondary/youtube/%(playlist)s/%(playlist_index)s. %(title)s.%(ext)s" 
-}
-
-function tp(){
-  youtube-dl --cookies ~/Desktop/lynda -u a.eid@yandex.com -p 0102409624057 -a ~/Desktop/playlist-links.txt $1 -i -o "/home/aeid/data/tutsplus/#%(autonumber)s - %(title)s.%(ext)s"
-}
-
-function edx(){
-  edx-dl -u eng.ahmed1992@hotmail.com -p  0102409624057 -i -o "/media/aeid/secondary/edx" $1 
-}
-
-function egghead(){
-  ehd -c -u a.eid@yandex.com -p 0102409624057 $1 /media/aeid/secondary/egghead
-}
 
 function to-pdf(){
   markdown-pdf -s "~/custom/md.css" $1.md -o $1.pdf 
