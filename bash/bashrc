@@ -1,0 +1,28 @@
+alias lll='ls -la'
+
+source ~/.alias
+export HISTCONTROL="eraseDups:ignoreSpace"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/aeid/.sdkman"
+[[ -s "/home/aeid/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aeid/.sdkman/bin/sdkman-init.sh"
+
+
+
+function boilerplate(){
+  if [ $1 = "pugsass" ]
+    git clone https://github.com/a-eid/sass-pug-webpack-boilerplate $2 
+  then
+  fi
+}
+
+function bp(){
+  boilerplate $1 $2
+}
+
+
+
+if [[ ! $TERM =~ screen ]]; then
+  exec tmux
+fi
+
