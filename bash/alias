@@ -1,0 +1,13 @@
+function take(){
+  mkdir $1 
+  cd $1 
+}
+
+alias sudo='sudo env PATH=$PATH'
+alias cra='create-react-app'
+alias edx=" edx-dl -u 'eng.ahmed1992@hotmail.com' -p $PASSWORD "
+
+# some aliases to be ported to an aliases file 
+alias avenv='source activate'
+alias dvenv='source deactivate' 
+alias lss='ls-scripts'
