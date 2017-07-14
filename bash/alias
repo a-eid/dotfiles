@@ -1,12 +1,12 @@
-function take(){
-  mkdir $1 
-  cd $1 
-}
-
 alias sudo='sudo env PATH=$PATH'
 alias cra='create-react-app'
 
-# some aliases to be ported to an aliases file 
+# django 
 alias avenv='source activate'
 alias dvenv='source deactivate' 
+
+# list avaiable packages.json scripts
 alias lss='ls-scripts'
+
+# listen open ports for listening
+alias lsp='lsof -i -n -P | grep LISTEN'
