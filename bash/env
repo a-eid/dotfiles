@@ -16,9 +16,6 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 # export PATH="/home/aeid/miniconda3/bin:$PATH"
 export PATH=/home/aeid/anaconda3/bin:$PATH
 
-
-
-
 # load n 
 # . ~/.z.sh
 
@@ -35,4 +32,6 @@ export HISTCONTROL=erasedups
 
 # golang root 
 export GOROOT_BOOTSTRAP=$GOROOT
-
+# npm custom path 
+# /home/aeid/.npm_g/bin
+export PATH=$PATH:/home/aeid/.npm_g/bin

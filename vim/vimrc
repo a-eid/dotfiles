@@ -2,7 +2,9 @@
 so ~/.vim/plugins.vim
 
 syntax on
+" new hybrid number for vim " vscode like
 set relativenumber 
+set number 
 set tabstop=2
 set expandtab
 set shiftwidth=2
@@ -60,11 +62,12 @@ hi LineNr guibg=bg
 hi vertsplit guifg=bg guibg=bg
 
 "==================== Visuals  ======================="
-colorscheme lucario 
+"colorscheme lucario 
 "colorscheme evening
 set t_CO=256
-"color dracula
-hi Visual term=reverse cterm=reverse guibg=Grey
+"colorscheme lucario 
+colorscheme desert 
+" hi Visual term=reverse cterm=reverse guibg=Grey
 
 
 "====================  Splits  ======================="
