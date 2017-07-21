@@ -116,7 +116,7 @@ bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 
 # clear while running tmux 
 # bind -n C-o send-keys -R \; send-keys C-l \; clear-history
-bind a send-keys -R \; send-keys C-l \; clear-history
+bind A send-keys -R \; send-keys C-l \; clear-history
 bind a send-keys -R \; send-keys C-l \; clear-history
 
 # reload conf 
